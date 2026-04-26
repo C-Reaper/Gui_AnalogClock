@@ -1,193 +1,94 @@
-# Gui_7SegClock
+# Project README
 
+## Overview
+This project is a simple analog clock application implemented in C. It uses a custom windowing system library, and supports building for Linux, Windows (both native and via Wine), and WebAssembly.
 
-## Project Overview
+## Features
+- Basic analog clock functionality
+- Clock displays hours, minutes, and seconds with separate hands
+- Customizable appearance through the use of a header file
 
-This project implements specialized functionality related to 7segclock.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for 7segclock
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+## Project Structure
+- `build/`: Contains executable files produced by Main.c
+- `src/`: Contains source code, including `Main.c` as the entry point.
+- `Makefile.linux`: Linux build configuration
+- `Makefile.windows`: Windows build configuration
+- `Makefile.wine`: Wine build configuration for building on Linux and running on Windows
+- `Makefile.web`: Emscripten build configuration for WebAssembly
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
 - Standard development tools
+- Libraries needed in specific projects:
+  - **Linux**: X11
+  - **Windows**: WINAPI
+  - **Wine**: Wine SDK
+  - **Web**: Emscripten
 
-### Build Steps
-
-1. Navigate to project directory:
-```bash
-cd Gui_7SegClock
-```
-
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
-
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
-```
-
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
-
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
-
-## Running the Project
-
-Execute the compiled binary:
+## Build & Run
+### Linux
+To build and run the project on Linux, execute the following commands:
 
 ```bash
-./build/Main(.exe)
+cd <Project>
+make -f Makefile.linux all
+make -f Makefile.linux exe
 ```
 
-Or using make:
+For a clean rebuild:
+
 ```bash
-make -f Makefile.(os) exe
+make -f Makefile.linux clean
+make -f Makefile.linux all
 ```
 
-## Project Organization
+### Windows (Native)
+To build and run the project on Windows, execute the following commands:
 
-```
-Gui_7SegClock/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
+```bash
+cd <Project>
+make -f Makefile.windows all
+make -f Makefile.windows exe
 ```
 
-## Technical Details
+For a clean rebuild:
 
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
+```bash
+make -f Makefile.windows clean
+make -f Makefile.windows all
+```
 
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
+### Windows (Wine)
+To build and run the project on Linux using Wine for Windows, execute the following commands:
 
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
+```bash
+cd <Project>
+make -f Makefile.wine all
+make -f Makefile.wine exe
+```
 
-## Development Notes
+For a clean rebuild:
 
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
+```bash
+make -f Makefile.wine clean
+make -f Makefile.wine all
+```
 
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
+### WebAssembly
+To build and run the project for WebAssembly, execute the following commands:
 
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
+```bash
+cd <Project>
+make -f Makefile.web all
+make -f Makefile.web exe
+```
 
-## Troubleshooting
+For a clean rebuild:
 
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
+```bash
+make -f Makefile.web clean
+make -f Makefile.web all
+```
 
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+These build instructions will allow you to compile and run the analog clock application on your chosen platform.
